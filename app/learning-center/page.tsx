@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero              from "@/components/PageHero";
-import MortgageCalculator    from "@/components/MortgageCalculator";
+import PurchaseCalculator    from "@/components/PurchaseCalculator";
 import AffordabilityCalculator from "@/components/AffordabilityCalculator";
 import RefiCalculator        from "@/components/RefiCalculator";
 import PageCtaBanner         from "@/components/PageCtaBanner";
@@ -100,7 +100,7 @@ export default function LearningCenterPage() {
       </div>
 
       {/* Calculators */}
-      <MortgageCalculator />
+      <PurchaseCalculator />
       <AffordabilityCalculator />
       <RefiCalculator />
 
