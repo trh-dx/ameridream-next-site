@@ -350,6 +350,14 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 
 /* ── GLOSSARY ── */
 .glossary-section { background:var(--blue-light); padding:72px 5%; }
+.faq-section { background:var(--white); padding:20px 5%; }
+.faq-list { display:flex; flex-direction:column; margin-top:8px; }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-item:first-child { border-top:1px solid var(--border); }
+.faq-question { font-size:13px; font-weight:600; color:var(--text-dark); padding:5px 32px 5px 0; cursor:pointer; list-style:none; position:relative; }
+.faq-question::after { content:"＋"; position:absolute; right:0; top:50%; transform:translateY(-50%); font-size:13px; color:var(--blue); transition:transform .2s; }
+details[open] .faq-question::after { content:"－"; }
+.faq-answer { font-size:12px; color:var(--text-mid); line-height:1.55; padding:0 0 5px; max-width:720px; }
 .glossary-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:36px; }
 .glossary-item { background:var(--white); border-radius:var(--r-md); padding:18px 20px; border:1px solid var(--border); }
 .glossary-term { font-size:14px; font-weight:600; color:var(--text-dark); margin-bottom:5px; }

@@ -58,6 +58,50 @@ const glossary = [
   { term: "Pre-qualification", def: "An informal estimate of what you might borrow based on self-reported info — not the same as a full pre-approval." },
 ];
 
+/* ── FAQs ── */
+const faqs = [
+  {
+    q: "How long does it take to get pre-approved?",
+    a: "Most pre-approvals are completed within 24–48 hours. Once you submit your application and documents, we review your credit, income, and assets and issue a pre-approval letter — often the same day.",
+  },
+  {
+    q: "What credit score do I need to qualify?",
+    a: "It depends on the loan type. Conventional loans typically require a 620+ score, FHA loans allow scores as low as 580 (with 3.5% down), and VA/USDA loans have flexible requirements. A higher score means a better rate, so it's worth checking before you apply.",
+  },
+  {
+    q: "How much do I need for a down payment?",
+    a: "FHA loans require as little as 3.5% down, conventional loans can go as low as 3%, and VA and USDA loans offer 0% down for eligible buyers. Keep in mind you'll also need funds for closing costs and reserves.",
+  },
+  {
+    q: "Can I get pre-approved before I find a house?",
+    a: "Yes — and we recommend it! Getting pre-approved before you start house hunting gives you a clear budget, strengthens your offer, and helps you move quickly in a competitive market.",
+  },
+  {
+    q: "What documents do I need to get pre-approved?",
+    a: "You'll typically need: W-2s and tax returns (last 2 years), recent pay stubs (last 30 days), bank and asset statements (last 2–3 months), a valid photo ID, and your Social Security number for a credit check. Self-employed borrowers may also need profit & loss statements.",
+  },
+  {
+    q: "What happens after I apply?",
+    a: "We'll verify your documents, order an appraisal on the property, and submit your file to underwriting. You'll receive a Loan Estimate within 3 business days. From application to closing typically takes 21–45 days.",
+  },
+  {
+    q: "How much are closing costs?",
+    a: "Closing costs typically run 2–5% of the loan amount and include lender fees, title insurance, appraisal, and prepaid taxes and insurance. We'll give you a detailed Loan Estimate early in the process so there are no surprises.",
+  },
+  {
+    q: "What is PMI?",
+    a: "Private Mortgage Insurance (PMI) is required on conventional loans when your down payment is less than 20%. It protects the lender — not you — and typically costs 0.5–1.5% of the loan annually. Once you reach 20% equity, you can request to have it removed.",
+  },
+  {
+    q: "Do you only lend in Texas?",
+    a: "We are licensed in Texas and primarily serve the North Texas market, including the DFW Metroplex. Contact us to find out if we can assist in your specific area.",
+  },
+  {
+    q: "Do you offer refinance and new construction loans?",
+    a: "Yes! In addition to purchase loans, we offer refinancing to lower your rate or tap your equity, as well as new construction loans. Talk to one of our loan officers to explore the options that fit your goals.",
+  },
+];
+
 /* ── Checklist preview items ── */
 const checklistItems = [
   { label: "Check & improve your credit score", done: true  },
@@ -86,6 +130,7 @@ export default function LearningCenterPage() {
             ["#refinance",    "Refi Calculator"],
             ["#basics",       "Home Buying Basics"],
             ["#glossary",     "Glossary"],
+            ["#faqs",         "FAQs"],
             ["#checklist",    "Checklist"],
           ].map(([href, label]) => (
             <a
@@ -134,6 +179,22 @@ export default function LearningCenterPage() {
                 <div className="glossary-term">{item.term}</div>
                 <div className="glossary-def">{item.def}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="faq-section" id="faqs">
+        <div className="wrap">
+          <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>FAQs</span>
+          <h2 className="sec-title">Common questions, straight answers.</h2>
+          <div className="faq-list">
+            {faqs.map((item) => (
+              <details key={item.q} className="faq-item">
+                <summary className="faq-question">{item.q}</summary>
+                <p className="faq-answer">{item.a}</p>
+              </details>
             ))}
           </div>
         </div>
