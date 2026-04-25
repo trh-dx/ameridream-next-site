@@ -64,6 +64,10 @@ export default function Header() {
           </ul>
 
           <div className="nav-right">
+            <div className="nav-mobile-btns">
+              <a href={PORTAL_URL} className="btn-portal">Client Login</a>
+              <a href={APPLY_URL} className="btn-red">Apply Now</a>
+            </div>
             <a
               href="https://www.facebook.com/450436438398721"
               target="_blank"
