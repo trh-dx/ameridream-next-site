@@ -162,13 +162,13 @@ export default function RefiCalculator() {
               <svg viewBox="0 0 200 200" className="calc-donut-svg">
                 <circle cx={cx} cy={cy} r={R} fill="none" stroke="#E8EFF7" strokeWidth={SW} />
                 {slices}
-                <text x={cx} y={87}  textAnchor="middle" fontSize="14" fontWeight="600" fill="#2EAF8A">$</text>
-                <text x={cx} y={114} textAnchor="middle" fontSize="30" fontWeight="700" fill="#2EAF8A"
-                  fontFamily="Georgia, serif">
-                  {Math.round(monthlySavings).toLocaleString()}
+                <text x={cx} y={89} textAnchor="middle" fill="#2EAF8A" fontFamily="system-ui, sans-serif">
+                  <tspan fontSize="14" fontWeight="700">$</tspan>
+                  <tspan fontSize="30" fontWeight="700">{Math.round(monthlySavings).toLocaleString()}</tspan>
                 </text>
-                <text x={cx} y={130} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Monthly</text>
-                <text x={cx} y={142} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Savings*</text>
+                <text x={cx} y={105} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Estimated</text>
+                <text x={cx} y={117} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Monthly</text>
+                <text x={cx} y={129} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Savings</text>
               </svg>
               <a href={APPLY_URL} className="calc-cta">Start my refi →</a>
               <p className="calc-disclaimer">

@@ -140,14 +140,13 @@ export default function PurchaseCalculator() {
               <svg viewBox="0 0 200 200" className="calc-donut-svg">
                 <circle cx={cx} cy={cy} r={R} fill="none" stroke="#E8EFF7" strokeWidth={SW} />
                 {slices}
-                <text x={cx} y={87}  textAnchor="middle" fontSize="14" fontWeight="600" fill={PI_COLOR}>$</text>
-                <text x={cx} y={114} textAnchor="middle" fontSize="30" fontWeight="700" fill={PI_COLOR}
-                  fontFamily="Georgia, serif">
-                  {Math.round(total).toLocaleString()}
+                <text x={cx} y={89} textAnchor="middle" fill={PI_COLOR} fontFamily="system-ui, sans-serif">
+                  <tspan fontSize="14" fontWeight="700">$</tspan>
+                  <tspan fontSize="30" fontWeight="700">{Math.round(total).toLocaleString()}</tspan>
                 </text>
-                <text x={cx} y={130} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Estimated</text>
-                <text x={cx} y={142} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Monthly</text>
-                <text x={cx} y={154} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Payment*</text>
+                <text x={cx} y={105} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Estimated</text>
+                <text x={cx} y={117} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Monthly</text>
+                <text x={cx} y={129} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Payment</text>
               </svg>
               <a href={APPLY_URL} className="calc-cta">Get an exact rate quote →</a>
               <p className="calc-disclaimer">
