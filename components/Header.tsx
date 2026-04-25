@@ -29,10 +29,10 @@ export default function Header() {
 
         <div className="nav-bottom">
           <ul className="nav-links">
-            <li><Link href="/loan-types">Loan types</Link></li>
-            <li><Link href="/learning-center">Learning center</Link></li>
-            <li><Link href="/checklist">Buyer checklist</Link></li>
-            <li><Link href="/meet-the-team">Our team</Link></li>
+            <li><Link href="/loan-types">Loan Options</Link></li>
+            <li><Link href="/learning-center">Learning Center</Link></li>
+            <li><Link href="/checklist">Buyer Checklist</Link></li>
+            <li><Link href="/meet-the-team">Our Team</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
 
@@ -67,10 +67,10 @@ export default function Header() {
       </nav>
 
       <div className={`mobile-nav${menuOpen ? " open" : ""}`}>
-        <Link href="/loan-types" onClick={() => setMenuOpen(false)}>Loan types</Link>
-        <Link href="/learning-center" onClick={() => setMenuOpen(false)}>Learning center</Link>
-        <Link href="/checklist" onClick={() => setMenuOpen(false)}>Buyer checklist</Link>
-        <Link href="/meet-the-team" onClick={() => setMenuOpen(false)}>Our team</Link>
+        <Link href="/loan-types" onClick={() => setMenuOpen(false)}>Loan Options</Link>
+        <Link href="/learning-center" onClick={() => setMenuOpen(false)}>Learning Center</Link>
+        <Link href="/checklist" onClick={() => setMenuOpen(false)}>Buyer Checklist</Link>
+        <Link href="/meet-the-team" onClick={() => setMenuOpen(false)}>Our Team</Link>
         <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
         <a href="tel:4693624700">(469) 362-4700</a>
         <a href={APPLY_URL} className="btn-red" style={{ textAlign: "center" }}>Apply Now</a>
