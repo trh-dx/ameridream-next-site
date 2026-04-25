@@ -259,7 +259,7 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 
 /* ── FILTER BAR ── */
 .filter-bar { background:var(--white); border-bottom:1px solid var(--border); padding:0 5%; position:sticky; top:var(--nav-h); z-index:90; box-shadow:var(--shadow-sm); }
-.filter-inner { max-width:1180px; margin:0 auto; display:flex; gap:6px; overflow-x:auto; padding:14px 0; scrollbar-width:none; }
+.filter-inner { max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:6px; overflow-x:auto; padding:14px 0; scrollbar-width:none; }
 .filter-inner::-webkit-scrollbar { display:none; }
 .filter-btn { background:transparent; border:1.5px solid var(--border); color:var(--text-mid); font-size:13.5px; font-weight:500; padding:8px 20px; border-radius:100px; cursor:pointer; white-space:nowrap; transition:all .2s; font-family:var(--font-sans); }
 .filter-btn:hover { border-color:var(--blue); color:var(--blue); }
