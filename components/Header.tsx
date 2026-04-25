@@ -4,8 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { APPLY_URL, PORTAL_URL } from "@/lib/constants";
 
+const LC_LINKS = [
+  { label: "Purchase Calculator",    href: "/learning-center#purchase-calculator" },
+  { label: "Affordability Calculator", href: "/learning-center#affordability-calculator" },
+  { label: "Refinance Calculator",   href: "/learning-center#refinance-calculator" },
+  { label: "Home Buying Basics",     href: "/learning-center#home-buying-basics" },
+  { label: "Mortgage Glossary",      href: "/learning-center#mortgage-glossary" },
+  { label: "FAQs",                   href: "/learning-center#faqs" },
+  { label: "Helpful Downloads",      href: "/resources/documents" },
+];
+
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [learnOpen, setLearnOpen] = useState(false);
+
+  const closeAll = () => { setMenuOpen(false); setLearnOpen(false); };
 
   return (
     <>
@@ -30,7 +43,23 @@ export default function Header() {
         <div className="nav-bottom">
           <ul className="nav-links">
             <li><Link href="/loan-types">Loan Options</Link></li>
-            <li><Link href="/learning-center">Learning Center</Link></li>
+
+            {/* Learning Center dropdown */}
+            <li className="nav-dropdown">
+              <Link href="/learning-center" className="nav-dropdown-btn" aria-haspopup="true">
+                Learning Center <span className="nav-dropdown-arrow">▾</span>
+              </Link>
+              <ul className="nav-dropdown-menu" role="menu">
+                {LC_LINKS.map(({ label, href }) => (
+                  <li key={href} role="none">
+                    <Link href={href} className="nav-dropdown-item" role="menuitem">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
             <li><Link href="/checklist">Buyer Checklist</Link></li>
             <li><Link href="/meet-the-team">Our Team</Link></li>
             <li><Link href="/contact">Contact</Link></li>
@@ -66,12 +95,31 @@ export default function Header() {
         </div>
       </nav>
 
+      {/* Mobile nav */}
       <div className={`mobile-nav${menuOpen ? " open" : ""}`}>
-        <Link href="/loan-types" onClick={() => setMenuOpen(false)}>Loan Options</Link>
-        <Link href="/learning-center" onClick={() => setMenuOpen(false)}>Learning Center</Link>
-        <Link href="/checklist" onClick={() => setMenuOpen(false)}>Buyer Checklist</Link>
-        <Link href="/meet-the-team" onClick={() => setMenuOpen(false)}>Our Team</Link>
-        <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <Link href="/loan-types" onClick={closeAll}>Loan Options</Link>
+
+        {/* Learning Center expandable */}
+        <button
+          className="mobile-nav-group-btn"
+          onClick={() => setLearnOpen(!learnOpen)}
+          aria-expanded={learnOpen}
+        >
+          Learning Center <span>{learnOpen ? "▲" : "▾"}</span>
+        </button>
+        {learnOpen && (
+          <div className="mobile-nav-sub">
+            {LC_LINKS.map(({ label, href }) => (
+              <Link key={href} href={href} className="mobile-nav-sub-link" onClick={closeAll}>
+                {label}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        <Link href="/checklist" onClick={closeAll}>Buyer Checklist</Link>
+        <Link href="/meet-the-team" onClick={closeAll}>Our Team</Link>
+        <Link href="/contact" onClick={closeAll}>Contact</Link>
         <a href="tel:4693624700">(469) 362-4700</a>
         <a href={APPLY_URL} className="btn-red" style={{ textAlign: "center" }}>Apply Now</a>
       </div>

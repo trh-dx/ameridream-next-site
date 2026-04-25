@@ -65,7 +65,7 @@ export default function RefiCalculator() {
   });
 
   return (
-    <section className="calc-section calc-alt" id="refinance">
+    <section className="calc-section calc-alt" id="refinance-calculator">
       <div className="wrap">
         <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Refinance Calculator</span>
         <h2 className="sec-title">Could you save by refinancing?</h2>

@@ -30,7 +30,7 @@ export default function AffordabilityCalculator() {
   const downPct  = maxPrice > 0 ? Math.round((saved / maxPrice) * 100) : 0;
 
   return (
-    <section className="calc-section" style={{ background: "var(--off-white)" }} id="affordability">
+    <section className="calc-section" style={{ background: "var(--off-white)" }} id="affordability-calculator">
       <div className="wrap">
         <span className="eyebrow">Affordability calculator</span>
         <h2 className="sec-title">How much home can you afford?</h2>

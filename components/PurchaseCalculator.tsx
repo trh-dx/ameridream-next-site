@@ -60,7 +60,7 @@ export default function PurchaseCalculator() {
   });
 
   return (
-    <section className="calc-section" id="calculator">
+    <section className="calc-section" id="purchase-calculator">
       <div className="wrap">
         <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Purchase Calculator</span>
         <h2 className="sec-title">Estimate your monthly payment.</h2>

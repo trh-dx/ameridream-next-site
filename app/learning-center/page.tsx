@@ -122,14 +122,14 @@ export default function LearningCenterPage() {
       />
 
       {/* Jump links */}
-      <div style={{ background: "var(--off-white)", borderBottom: "1px solid var(--border)", padding: "0 5%" }}>
-        <div style={{ maxWidth: 1180, margin: "0 auto", display: "flex", gap: 24, overflowX: "auto", padding: "16px 0" }}>
+      <div className="lc-jump-bar">
+        <div className="lc-jump-inner">
           {[
-            ["#calculator",   "Purchase Calculator"],
-            ["#affordability","Affordability Calculator"],
-            ["#refinance",    "Refi Calculator"],
-            ["#basics",       "Home Buying Basics"],
-            ["#glossary",     "Glossary"],
+            ["#purchase-calculator",   "Purchase Calculator"],
+            ["#affordability-calculator","Affordability Calculator"],
+            ["#refinance-calculator",    "Refi Calculator"],
+            ["#home-buying-basics",       "Home Buying Basics"],
+            ["#mortgage-glossary",     "Glossary"],
             ["#faqs",         "FAQs"],
             ["#checklist",    "Checklist"],
             ["/resources/documents", "Helpful Downloads"],
@@ -151,7 +151,7 @@ export default function LearningCenterPage() {
       <RefiCalculator />
 
       {/* Home Purchase Basics */}
-      <section className="basics-section" id="basics">
+      <section className="basics-section" id="home-buying-basics">
         <div className="wrap">
           <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Home Buying Basics</span>
           <h2 className="sec-title">What every buyer should know.</h2>
@@ -170,7 +170,7 @@ export default function LearningCenterPage() {
       </section>
 
       {/* Glossary */}
-      <section className="glossary-section" id="glossary">
+      <section className="glossary-section" id="mortgage-glossary">
         <div className="wrap">
           <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Mortgage Glossary</span>
           <h2 className="sec-title">Plain-English definitions.</h2>
