@@ -307,7 +307,7 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 .td-hl-red { color:var(--red);  font-weight:700; }
 
 /* ── CALCULATORS ── */
-.calc-section { padding:72px 5%; background:var(--white); }
+.calc-section { padding:72px 5%; background:var(--white); scroll-margin-top:calc(var(--nav-h) + 56px); }
 .calc-section.calc-alt { background:var(--off-white); border-top:1px solid var(--border); }
 .calc-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:48px; align-items:start; margin-top:36px; max-width:1000px; }
 .calc-inputs { display:flex; flex-direction:column; gap:12px; }
@@ -344,7 +344,7 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 .calc-donut-svg { width:320px; height:320px; display:block; }
 
 /* ── HOME PURCHASE BASICS ── */
-.basics-section { padding:72px 5% 96px; }
+.basics-section { padding:72px 5% 96px; scroll-margin-top:calc(var(--nav-h) + 56px); }
 .basics-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px; }
 .basics-card { background:var(--white); border-radius:var(--r-lg); padding:28px 24px; border:1px solid var(--border); transition:all .25s; }
 .basics-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-sm); }
@@ -353,14 +353,14 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 .basics-card p { font-size:13.5px; color:var(--text-mid); line-height:1.68; font-weight:300; }
 
 /* ── GLOSSARY ── */
-.glossary-section { background:var(--blue-light); padding:72px 5%; }
+.glossary-section { background:var(--blue-light); padding:72px 5%; scroll-margin-top:calc(var(--nav-h) + 56px); }
 /* Learning Center sticky jump bar */
 .lc-jump-bar { position:sticky; top:var(--nav-h); z-index:95; background:var(--white); border-bottom:1px solid var(--border); padding:0 5%; box-shadow:0 2px 8px rgba(13,46,84,.06); }
 .lc-jump-inner { max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px 20px; overflow-x:auto; padding:12px 0; scrollbar-width:none; }
 .lc-jump-inner::-webkit-scrollbar { display:none; }
 .lc-jump-inner a { white-space:nowrap; font-size:13px; font-weight:500; color:var(--blue); text-decoration:none; padding:4px 0; border-bottom:2px solid transparent; transition:border-color .15s, color .15s; flex-shrink:0; }
 .lc-jump-inner a:hover { color:var(--blue-dark); border-bottom-color:var(--blue); }
-.faq-section { background:var(--white); padding:20px 5%; }
+.faq-section { background:var(--white); padding:20px 5%; scroll-margin-top:calc(var(--nav-h) + 56px); }
 /* Helpful Downloads page */
 .downloads-section { padding:32px 5% 80px; background:var(--off-white); }
 .downloads-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:28px; margin-top:40px; }
@@ -385,7 +385,7 @@ details[open] .faq-question::after { content:"－"; }
 .glossary-def { font-size:13px; color:var(--text-mid); line-height:1.65; font-weight:300; }
 
 /* ── CHECKLIST PROMO ── */
-.checklist-promo { background:var(--white); padding:72px 5%; border-top:1px solid var(--border); }
+.checklist-promo { background:var(--white); padding:72px 5%; border-top:1px solid var(--border); scroll-margin-top:calc(var(--nav-h) + 56px); }
 .checklist-promo-grid { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
 .checklist-promo-items { background:var(--off-white); border-radius:var(--r-xl); padding:32px; border:1px solid var(--border); display:flex; flex-direction:column; gap:10px; }
 .checklist-promo-item { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--white); border-radius:10px; border:1px solid var(--border); }
