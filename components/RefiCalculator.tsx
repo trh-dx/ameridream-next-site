@@ -7,13 +7,18 @@ function fmt(n: number) {
   return "$" + Math.round(n).toLocaleString();
 }
 
+const SEGMENTS = [
+  { key: "newPayment",     label: "New Payment",      color: "#1A5BA6" },
+  { key: "savings",        label: "Monthly Savings",  color: "#2EAF8A" },
+];
+
 export default function RefiCalculator() {
-  const [balance,  setBalance]  = useState(280000);
-  const [oldRate,  setOldRate]  = useState(7.5);
-  const [oldTerm,  setOldTerm]  = useState(30);
-  const [newRate,  setNewRate]  = useState(6.5);
-  const [newTerm,  setNewTerm]  = useState(30);
-  const [closing,  setClosing]  = useState(5000);
+  const [balance, setBalance] = useState(280000);
+  const [oldRate, setOldRate] = useState(7.5);
+  const [oldTerm, setOldTerm] = useState(30);
+  const [newRate, setNewRate] = useState(6.5);
+  const [newTerm, setNewTerm] = useState(30);
+  const [closing, setClosing] = useState(5000);
 
   function monthly(loan: number, annualRate: number, termYears: number) {
     const r = annualRate / 100 / 12;
@@ -22,28 +27,51 @@ export default function RefiCalculator() {
     return loan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
   }
 
-  const oldPayment = monthly(balance, oldRate, oldTerm);
-  const newPayment = monthly(balance, newRate, newTerm);
-  const monthlySavings = oldPayment - newPayment;
+  const oldPayment     = monthly(balance, oldRate, oldTerm);
+  const newPayment     = monthly(balance, newRate, newTerm);
+  const monthlySavings = Math.max(0, oldPayment - newPayment);
   const breakEvenMonths = monthlySavings > 0 ? Math.ceil(closing / monthlySavings) : Infinity;
-  const breakEvenYears  = breakEvenMonths / 12;
+  const breakEvenLabel  = monthlySavings <= 0
+    ? "N/A"
+    : breakEvenMonths < 12
+      ? `${breakEvenMonths} mo`
+      : `${(breakEvenMonths / 12).toFixed(1)} yrs`;
   const lifetimeSavings = monthlySavings > 0
     ? monthlySavings * newTerm * 12 - closing
     : 0;
 
-  const breakEvenLabel = monthlySavings <= 0
-    ? "N/A"
-    : breakEvenMonths < 12
-      ? `${breakEvenMonths} mo`
-      : `${breakEvenYears.toFixed(1)} yrs`;
+  // Donut: new payment + savings = old payment
+  const total = oldPayment;
+  const cx = 100, cy = 100, R = 76, SW = 22;
+  const circ = 2 * Math.PI * R;
+  const donutSegs = [
+    { color: "#1A5BA6", value: newPayment },
+    { color: "#2EAF8A", value: monthlySavings },
+  ];
+  let angle = -90;
+  const slices = donutSegs.map((seg, i) => {
+    const pct  = total > 0 ? seg.value / total : 0;
+    const dash = pct * circ;
+    const rot  = angle;
+    angle += pct * 360;
+    if (dash < 0.5) return null;
+    return (
+      <circle key={i} cx={cx} cy={cy} r={R} fill="none"
+        stroke={seg.color} strokeWidth={SW}
+        strokeDasharray={`${dash} ${circ - dash}`}
+        transform={`rotate(${rot}, ${cx}, ${cy})`}
+      />
+    );
+  });
 
   return (
-    <section className="calc-section" id="refinance">
+    <section className="calc-section calc-alt" id="refinance">
       <div className="wrap">
-        <span className="eyebrow">Refinance calculator</span>
+        <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Refinance Calculator</span>
         <h2 className="sec-title">Could you save by refinancing?</h2>
         <div className="calc-grid">
-          {/* Sliders */}
+
+          {/* ── Sliders ── */}
           <div className="calc-inputs">
             <div className="calc-field">
               <label>Remaining loan balance</label>
@@ -75,38 +103,79 @@ export default function RefiCalculator() {
             </div>
           </div>
 
-          {/* Results */}
-          <div className="calc-result">
-            <div className="calc-result-label">Monthly savings</div>
-            <div className="calc-result-payment">
-              {monthlySavings > 0 ? fmt(monthlySavings) : "$0"}
+          {/* ── Results panel ── */}
+          <div className="calc-result-panel">
+
+            {/* Line items */}
+            <div className="calc-line-items">
+              <div className="calc-line-item">
+                <div className="calc-line-meta">
+                  <span className="calc-line-swatch" style={{ background: "#E07820" }} />
+                  <span className="calc-line-label">Current Payment</span>
+                </div>
+                <div className="calc-line-input calc-line-input--readonly">
+                  <span className="calc-line-dollar">$</span>
+                  <span className="calc-line-num">{Math.round(oldPayment).toLocaleString()}</span>
+                </div>
+              </div>
+              {SEGMENTS.map(seg => (
+                <div key={seg.key} className="calc-line-item">
+                  <div className="calc-line-meta">
+                    <span className="calc-line-swatch" style={{ background: seg.color }} />
+                    <span className="calc-line-label">{seg.label}</span>
+                  </div>
+                  <div className="calc-line-input calc-line-input--readonly">
+                    <span className="calc-line-dollar">$</span>
+                    <span className="calc-line-num">
+                      {seg.key === "newPayment"
+                        ? Math.round(newPayment).toLocaleString()
+                        : Math.round(monthlySavings).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              ))}
+              <div className="calc-line-item">
+                <div className="calc-line-meta">
+                  <span className="calc-line-swatch" style={{ background: "#152535" }} />
+                  <span className="calc-line-label">Break-even Point</span>
+                </div>
+                <div className="calc-line-input calc-line-input--readonly">
+                  <span className="calc-line-num">{breakEvenLabel}</span>
+                </div>
+              </div>
+              <div className="calc-line-item">
+                <div className="calc-line-meta">
+                  <span className="calc-line-swatch" style={{ background: "#1A4F5C" }} />
+                  <span className="calc-line-label">Lifetime Savings</span>
+                </div>
+                <div className="calc-line-input calc-line-input--readonly">
+                  <span className="calc-line-dollar">{lifetimeSavings > 0 ? "$" : ""}</span>
+                  <span className="calc-line-num">
+                    {lifetimeSavings > 0 ? Math.round(lifetimeSavings).toLocaleString() : "N/A"}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="calc-result-sub">Per month after refinancing</div>
-            <div className="calc-breakdown">
-              <div className="calc-breakdown-row">
-                <span className="calc-breakdown-label">Current payment</span>
-                <span className="calc-breakdown-val">{fmt(oldPayment)}/mo</span>
-              </div>
-              <div className="calc-breakdown-row">
-                <span className="calc-breakdown-label">New payment</span>
-                <span className="calc-breakdown-val">{fmt(newPayment)}/mo</span>
-              </div>
-              <div className="calc-breakdown-row">
-                <span className="calc-breakdown-label">Break-even point</span>
-                <span className="calc-breakdown-val">{breakEvenLabel}</span>
-              </div>
-              <div className="calc-breakdown-row">
-                <span className="calc-breakdown-label">Lifetime savings</span>
-                <span className="calc-breakdown-val">
-                  {lifetimeSavings > 0 ? fmt(lifetimeSavings) : "N/A"}
-                </span>
-              </div>
+
+            {/* Donut + CTA */}
+            <div className="calc-donut-wrap">
+              <svg viewBox="0 0 200 200" className="calc-donut-svg">
+                <circle cx={cx} cy={cy} r={R} fill="none" stroke="#E8EFF7" strokeWidth={SW} />
+                {slices}
+                <text x={cx} y={87}  textAnchor="middle" fontSize="14" fontWeight="600" fill="#2EAF8A">$</text>
+                <text x={cx} y={114} textAnchor="middle" fontSize="30" fontWeight="700" fill="#2EAF8A"
+                  fontFamily="Georgia, serif">
+                  {Math.round(monthlySavings).toLocaleString()}
+                </text>
+                <text x={cx} y={130} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Monthly</text>
+                <text x={cx} y={142} textAnchor="middle" fontSize="9.5" fill="#7A98B8">Savings*</text>
+              </svg>
+              <a href={APPLY_URL} className="calc-cta">Start my refi →</a>
+              <p className="calc-disclaimer">
+                *Estimates assume fixed-rate loans on the same balance. Actual savings depend on your remaining term, credit, and lender fees.
+              </p>
             </div>
-            <a href={APPLY_URL} className="calc-cta">Start my refi →</a>
-            <p className="calc-disclaimer">
-              Estimates assume fixed-rate loans on the same balance. Actual savings
-              depend on your remaining term, credit, and lender fees.
-            </p>
+
           </div>
         </div>
       </div>

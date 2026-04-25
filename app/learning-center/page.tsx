@@ -107,7 +107,7 @@ export default function LearningCenterPage() {
       {/* Home Purchase Basics */}
       <section className="basics-section" id="basics">
         <div className="wrap">
-          <span className="eyebrow">Home buying basics</span>
+          <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Home Buying Basics</span>
           <h2 className="sec-title">What every buyer should know.</h2>
           <div className="basics-grid">
             {basics.map((card) => (
@@ -126,7 +126,7 @@ export default function LearningCenterPage() {
       {/* Glossary */}
       <section className="glossary-section" id="glossary">
         <div className="wrap">
-          <span className="eyebrow">Mortgage glossary</span>
+          <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Mortgage Glossary</span>
           <h2 className="sec-title">Plain-English definitions.</h2>
           <div className="glossary-grid">
             {glossary.map((item) => (
@@ -143,7 +143,7 @@ export default function LearningCenterPage() {
       <section className="checklist-promo" id="checklist">
         <div className="checklist-promo-grid">
           <div>
-            <span className="eyebrow">Step-by-step checklist</span>
+            <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Step-by-Step Checklist</span>
             <h2 className="sec-title" style={{ marginBottom: 16 }}>Your home-buying checklist.</h2>
             <p style={{ color: "var(--text-mid)", marginBottom: 32, lineHeight: 1.7 }}>
               Track every step from credit check to closing day. Our interactive checklist
