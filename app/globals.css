@@ -351,6 +351,17 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 /* ── GLOSSARY ── */
 .glossary-section { background:var(--blue-light); padding:72px 5%; }
 .faq-section { background:var(--white); padding:20px 5%; }
+/* Helpful Downloads page */
+.downloads-section { padding:64px 5% 80px; background:var(--off-white); }
+.downloads-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:28px; margin-top:40px; }
+.download-card { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; border:1px solid var(--border); display:flex; flex-direction:column; gap:14px; transition:all .25s; }
+.download-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(13,46,84,.1); }
+.download-card-top { display:flex; align-items:center; justify-content:space-between; }
+.download-icon { font-size:36px; line-height:1; }
+.download-type { font-size:11px; font-weight:700; color:var(--white); letter-spacing:.08em; padding:4px 10px; border-radius:var(--r-sm); }
+.download-title { font-family:var(--font-serif); font-size:20px; color:var(--text-dark); line-height:1.25; }
+.download-desc { font-size:14px; color:var(--text-mid); line-height:1.7; flex:1; }
+.download-btn { margin-top:auto; text-align:center; }
 .faq-list { display:flex; flex-direction:column; margin-top:8px; }
 .faq-item { border-bottom:1px solid var(--border); }
 .faq-item:first-child { border-top:1px solid var(--border); }

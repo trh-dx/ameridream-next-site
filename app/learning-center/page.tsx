@@ -125,13 +125,14 @@ export default function LearningCenterPage() {
       <div style={{ background: "var(--off-white)", borderBottom: "1px solid var(--border)", padding: "0 5%" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto", display: "flex", gap: 24, overflowX: "auto", padding: "16px 0" }}>
           {[
-            ["#calculator",   "Payment Calculator"],
-            ["#affordability","Affordability"],
+            ["#calculator",   "Purchase Calculator"],
+            ["#affordability","Affordability Calculator"],
             ["#refinance",    "Refi Calculator"],
             ["#basics",       "Home Buying Basics"],
             ["#glossary",     "Glossary"],
             ["#faqs",         "FAQs"],
             ["#checklist",    "Checklist"],
+            ["/resources/documents", "Helpful Downloads"],
           ].map(([href, label]) => (
             <a
               key={href}
@@ -227,6 +228,30 @@ export default function LearningCenterPage() {
               </div>
             ))}
             <p className="checklist-promo-more">+ 23 more steps in the full checklist</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Helpful Downloads */}
+      <section className="basics-section" style={{ background: "var(--off-white)", borderTop: "1px solid var(--border)" }}>
+        <div className="wrap">
+          <span className="eyebrow" style={{ fontSize: "22px", fontWeight: "800", letterSpacing: ".02em" }}>Helpful Downloads</span>
+          <h2 className="sec-title">Resources to take with you.</h2>
+          <div style={{ marginTop: 32 }}>
+            <Link href="/resources/documents" className="basics-card" style={{ display: "flex", alignItems: "center", gap: 20, textDecoration: "none", maxWidth: 520 }}>
+              <span style={{ fontSize: 40 }}>📁</span>
+              <div>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: 19, color: "var(--text-dark)", fontWeight: 600, marginBottom: 6 }}>
+                  Mortgage Resource Library
+                </div>
+                <p style={{ fontSize: 13.5, color: "var(--text-mid)", lineHeight: 1.65, margin: 0 }}>
+                  Download our Do's &amp; Don'ts guide, document checklist, and more — everything you need to prepare for your loan process.
+                </p>
+                <span style={{ display: "inline-block", marginTop: 12, fontSize: 13, fontWeight: 600, color: "var(--blue)" }}>
+                  View all downloads →
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
