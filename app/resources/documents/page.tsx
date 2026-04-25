@@ -55,6 +55,7 @@ export default function HelpfulDownloadsPage() {
   return (
     <main>
       <PageHero
+        compact
         breadcrumb="Helpful Downloads"
         title={<>Resources to help you<br /><em>prepare with confidence.</em></>}
         subtitle="Download helpful AmeriDream mortgage resources to prepare for your loan process, gather documents, and understand important do's and don'ts before closing."

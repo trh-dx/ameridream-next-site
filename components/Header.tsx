@@ -5,9 +5,7 @@ import Link from "next/link";
 import { APPLY_URL, PORTAL_URL } from "@/lib/constants";
 
 const LC_LINKS = [
-  { label: "Purchase Calculator",    href: "/learning-center#purchase-calculator" },
-  { label: "Affordability Calculator", href: "/learning-center#affordability-calculator" },
-  { label: "Refinance Calculator",   href: "/learning-center#refinance-calculator" },
+  { label: "Calculators",            href: "/calculators" },
   { label: "Home Buying Basics",     href: "/learning-center#home-buying-basics" },
   { label: "Mortgage Glossary",      href: "/learning-center#mortgage-glossary" },
   { label: "FAQs",                   href: "/learning-center#faqs" },

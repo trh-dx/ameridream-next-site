@@ -245,6 +245,9 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero { padding:136px 5% 72px; background:var(--blue); position:relative; overflow:hidden; }
+.page-hero--compact { padding:calc(var(--nav-h) + 16px) 5% 32px; }
+.page-hero--compact h1 { font-size:clamp(24px,3vw,36px); margin-bottom:8px; }
+.page-hero--compact p { display:none; }
 .page-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(ellipse at 80% 50%,rgba(192,39,45,.18) 0%,transparent 60%), linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:100% 100%,56px 56px,56px 56px; }
 .page-hero-inner { position:relative; z-index:2; max-width:1180px; margin:0 auto; }
 .breadcrumb { font-size:12px; color:rgba(255,255,255,.6); margin-bottom:14px; }
@@ -359,7 +362,7 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 .lc-jump-inner a:hover { color:var(--blue-dark); border-bottom-color:var(--blue); }
 .faq-section { background:var(--white); padding:20px 5%; }
 /* Helpful Downloads page */
-.downloads-section { padding:64px 5% 80px; background:var(--off-white); }
+.downloads-section { padding:32px 5% 80px; background:var(--off-white); }
 .downloads-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:28px; margin-top:40px; }
 .download-card { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; border:1px solid var(--border); display:flex; flex-direction:column; gap:14px; transition:all .25s; }
 .download-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(13,46,84,.1); }

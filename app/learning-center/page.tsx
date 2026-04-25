@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PageHero              from "@/components/PageHero";
-import PurchaseCalculator    from "@/components/PurchaseCalculator";
-import AffordabilityCalculator from "@/components/AffordabilityCalculator";
-import RefiCalculator        from "@/components/RefiCalculator";
-import PageCtaBanner         from "@/components/PageCtaBanner";
+import PageHero      from "@/components/PageHero";
+import PageCtaBanner from "@/components/PageCtaBanner";
 
 export const metadata: Metadata = {
   title: "Learning Center | AmeriDream Mortgage Group",
@@ -125,13 +122,10 @@ export default function LearningCenterPage() {
       <div className="lc-jump-bar">
         <div className="lc-jump-inner">
           {[
-            ["#purchase-calculator",   "Purchase Calculator"],
-            ["#affordability-calculator","Affordability Calculator"],
-            ["#refinance-calculator",    "Refi Calculator"],
-            ["#home-buying-basics",       "Home Buying Basics"],
-            ["#mortgage-glossary",     "Glossary"],
-            ["#faqs",         "FAQs"],
-            ["#checklist",    "Checklist"],
+            ["#home-buying-basics",  "Home Buying Basics"],
+            ["#mortgage-glossary",   "Glossary"],
+            ["#faqs",                "FAQs"],
+            ["#checklist",           "Checklist"],
             ["/resources/documents", "Helpful Downloads"],
           ].map(([href, label]) => (
             <a
@@ -144,11 +138,6 @@ export default function LearningCenterPage() {
           ))}
         </div>
       </div>
-
-      {/* Calculators */}
-      <PurchaseCalculator />
-      <AffordabilityCalculator />
-      <RefiCalculator />
 
       {/* Home Purchase Basics */}
       <section className="basics-section" id="home-buying-basics">

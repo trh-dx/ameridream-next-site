@@ -1,17 +1,15 @@
 import Link from "next/link";
 
 type Props = {
-  /** The label shown after "Home ›" in the breadcrumb */
   breadcrumb: string;
-  /** The page title — can include <em> for italic red text */
   title: React.ReactNode;
-  /** The paragraph below the title */
   subtitle: string;
+  compact?: boolean;
 };
 
-export default function PageHero({ breadcrumb, title, subtitle }: Props) {
+export default function PageHero({ breadcrumb, title, subtitle, compact }: Props) {
   return (
-    <div className="page-hero">
+    <div className={`page-hero${compact ? " page-hero--compact" : ""}`}>
       <div className="page-hero-inner">
         <div className="breadcrumb">
           <Link href="/">Home</Link> › {breadcrumb}
