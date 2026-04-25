@@ -353,7 +353,7 @@ footer { background:var(--white); padding:56px 5% 28px; border-top:3px solid var
 .glossary-section { background:var(--blue-light); padding:72px 5%; }
 /* Learning Center sticky jump bar */
 .lc-jump-bar { position:sticky; top:var(--nav-h); z-index:95; background:var(--white); border-bottom:1px solid var(--border); padding:0 5%; box-shadow:0 2px 8px rgba(13,46,84,.06); }
-.lc-jump-inner { max-width:1180px; margin:0 auto; display:flex; gap:24px; overflow-x:auto; padding:12px 0; scrollbar-width:none; }
+.lc-jump-inner { max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px 20px; overflow-x:auto; padding:12px 0; scrollbar-width:none; }
 .lc-jump-inner::-webkit-scrollbar { display:none; }
 .lc-jump-inner a { white-space:nowrap; font-size:13px; font-weight:500; color:var(--blue); text-decoration:none; padding:4px 0; border-bottom:2px solid transparent; transition:border-color .15s, color .15s; flex-shrink:0; }
 .lc-jump-inner a:hover { color:var(--blue-dark); border-bottom-color:var(--blue); }
@@ -427,7 +427,8 @@ details[open] .faq-question::after { content:"－"; }
 @media(max-width:900px){
   .calc-grid { grid-template-columns:1fr; }
   .calc-result-panel { grid-template-columns:1fr; }
-  .calc-donut-wrap { width:100%; }
+  .calc-donut-wrap { width:100%; min-width:0; }
+  .calc-donut-svg { width:100%; max-width:320px; height:auto; }
   .basics-grid { grid-template-columns:1fr; }
   .glossary-grid { grid-template-columns:1fr; }
   .checklist-promo-grid { grid-template-columns:1fr; }
@@ -437,7 +438,7 @@ details[open] .faq-question::after { content:"－"; }
   .loan-stats { grid-template-columns:1fr 1fr; }
   .loan-features { grid-template-columns:1fr; }
   .cta-banner-inner { grid-template-columns:1fr; }
-  .cta-banner-btns { align-items:flex-start; flex-direction:row; }
+  .cta-banner-btns { align-items:flex-start; flex-direction:row; flex-wrap:wrap; }
   .hero-inner { grid-template-columns:1fr; }
   .hero-widget { display:none; }
   .svc-grid { grid-template-columns:1fr; }
@@ -463,6 +464,10 @@ details[open] .faq-question::after { content:"－"; }
   .compare-table th, .compare-table td { padding:10px 12px; }
   .cl-layout { grid-template-columns:1fr; }
   .cl-sidebar { position:static; }
+  .lc-jump-inner { flex-wrap:wrap; overflow-x:visible; gap:8px; padding:10px 0; }
+  .lc-jump-inner a { border:1px solid var(--border); border-radius:99px; padding:5px 14px; background:var(--blue-pale); font-size:12px !important; }
+  .cta-banner-btns { flex-direction:column; align-items:stretch; }
+  .cta-banner-btns a { text-align:center; }
 }
 
 /* ── CHECKLIST PAGE ── */
